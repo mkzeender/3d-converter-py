@@ -20,3 +20,6 @@ high-performance python 3d models convertor
 
 - save your model which should be converted to data/
 - `python cli.py data/*input_filename.input_format* data/output_filename.output_foramt`. example: `python cli.py data/example.obj data/example.stl`
+
+this program also provide GUI interface:
+- `python main.py`
