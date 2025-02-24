@@ -1,8 +1,8 @@
 # 3d-converter-py
 
-high-performance python 3d models convertor
+A high-performance python 3d model converter
 
-## supported formats to convert:
+## Supported formats:
 
 - obj
 - dae
@@ -11,15 +11,19 @@ high-performance python 3d models convertor
 - ply
 - stl
 
-## requirements:
+## Installation
+Install python 3.11
+ - It only works on exactly 3.11.
+ - Installation will fail otherwise.
+ - I would recommend using a venv to ensure you are running in the correct python version.
 
-- python 3.10
-- installed packages from requirements.txt `pip install -r requirements.txt`
+Run:
+
+```pip install git+https://github.com/mkzeender/3d-converter-py.git@main```
+
 
 ## how to use:
 
-- save your model which should be converted to data/
-- `python cli.py data/*input_filename.input_format* data/output_filename.output_foramt`. example: `python cli.py data/example.obj data/example.stl`
+- ```convert3d INPUT_FILE OUTPUT_FILE```
 
-this program also provide GUI interface:
-- `python main.py`
+- ```convert3d-gui```
