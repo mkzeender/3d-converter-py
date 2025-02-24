@@ -21,14 +21,14 @@ def convert(input_path, input_format, output_path, output_format):
         case "fbx":
             bpy.ops.import_scene.fbx(filepath=input_path)
 
-        # case "ply":
-        #     bpy.ops.wm.ply_import(
-        #         filepath=input_path, forward_axis="NEGATIVE_Z", up_axis="Y"
-        #     )
         case "ply":
-            bpy.ops.import_mesh.ply(
-                filepath=input_path,  # forward_axis="NEGATIVE_Z", up_axis="Y"
+            bpy.ops.wm.ply_import(  # type: ignore
+                filepath=input_path, forward_axis="NEGATIVE_Z", up_axis="Y"
             )
+        # case "ply":
+        #     bpy.ops.import_mesh.ply(
+        #         filepath=input_path,  # forward_axis="NEGATIVE_Z", up_axis="Y"
+        #     )
 
         case "stl":
             bpy.ops.import_mesh.stl(filepath=input_path)
@@ -52,8 +52,11 @@ def convert(input_path, input_format, output_path, output_format):
             )
 
         case "ply":
-            bpy.ops.export_mesh.ply(
-                filepath=output_path, axis_forward="-Z", axis_up="Y"
+            # bpy.ops.export_mesh.ply(
+            #     filepath=output_path, axis_forward="-Z", axis_up="Y"
+            # )
+            bpy.ops.wm.ply_export(  # type: ignore
+                filepath=output_path, forward_axis="NEGATIVE_Z", up_axis="Y"
             )
 
         case "stl":

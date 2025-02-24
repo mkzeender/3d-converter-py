@@ -1,4 +1,5 @@
-from tkinter import Label, filedialog
+from tkinter import filedialog
+from tkinter.ttk import Label, Button
 from tkinter.messagebox import showinfo
 from convert3d.utils import blender
 import tkinter as tk
@@ -11,17 +12,17 @@ class App:
         self.root.title("3D models convertor")
         self.root.geometry("250x250")
         self.var = StringVar()
-        self.var.set("Input file ins't picked")
+        self.var.set("Input file isn't picked")
         self.input_path = None
 
-        open_button = tk.Button(self.root, text="Pick a File", command=self.select_file)
+        open_button = Button(self.root, text="Pick a File", command=self.select_file)
 
         open_button.pack(expand=True)
 
         l = Label(self.root, textvariable=self.var)
         l.pack(expand=True)
 
-        convert_button = tk.Button(
+        convert_button = Button(
             self.root, text="Convert and Save as", command=self.save_file
         )
         convert_button.pack(expand=True)
@@ -37,7 +38,7 @@ class App:
         )
 
         if input_path:
-            self.var.set("Input file is picked\nPress to the button under")
+            self.var.set("Input file is picked\nPress button to convert!")
             self.input_path = input_path
 
     def save_file(self):

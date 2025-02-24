@@ -9,7 +9,6 @@ dependencies = [
     "loguru>=0.7.3",
     "numpy==1.26.*",
 ]
-packages = ['convert3d']
 
 [project.scripts]
 convert3d = "convert3d.cli:main"
