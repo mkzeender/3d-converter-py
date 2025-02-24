@@ -1,31 +1,34 @@
-from utils import logger, blender
+from convert3d.utils import logger, blender
 import sys
 import logging
-import bpy
+
+# import bpy
 
 # --------------------------------------------------------------------
 # Enable Plugins
 # --------------------------------------------------------------------
 
-logger.configure_logger("true")
 
-# --------------------------------------------------------------------
-# Initing
-# --------------------------------------------------------------------
+def main():
+    logger.configure_logger(True)
 
-PROGRAM_NAME, INPUT_PATH, OUTPUT_PATH = sys.argv
-INPUT_FORMAT = INPUT_PATH.split(".")[-1]
-OUTPUT_FORMAT = OUTPUT_PATH.split(".")[-1]
-logging.info(f"Program \"{PROGRAM_NAME}\" started")
+    # --------------------------------------------------------------------
+    # Initing
+    # --------------------------------------------------------------------
 
-# --------------------------------------------------------------------
-# Main
-# --------------------------------------------------------------------
+    PROGRAM_NAME, INPUT_PATH, OUTPUT_PATH = sys.argv
+    INPUT_FORMAT = INPUT_PATH.split(".")[-1]
+    OUTPUT_FORMAT = OUTPUT_PATH.split(".")[-1]
+    logging.info(f'Program "{PROGRAM_NAME}" started')
 
-blender.convert(INPUT_PATH, INPUT_FORMAT, OUTPUT_PATH, OUTPUT_FORMAT)
+    # --------------------------------------------------------------------
+    # Main
+    # --------------------------------------------------------------------
 
-# --------------------------------------------------------------------
-# Exiting
-# --------------------------------------------------------------------
+    blender.convert(INPUT_PATH, INPUT_FORMAT, OUTPUT_PATH, OUTPUT_FORMAT)
 
-logging.info("Program stopped")
+    # --------------------------------------------------------------------
+    # Exiting
+    # --------------------------------------------------------------------
+
+    logging.info("Program stopped")

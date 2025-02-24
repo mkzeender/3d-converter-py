@@ -1,6 +1,6 @@
 from tkinter import Label, filedialog
 from tkinter.messagebox import showinfo
-from .utils import blender
+from convert3d.utils import blender
 import tkinter as tk
 from tkinter import StringVar
 

@@ -1,0 +1,18 @@
+[project]
+name = "convert3d"
+version = "0.1.0"
+description = "Convert 3d files"
+readme = "README.md"
+requires-python = "==3.11.*"
+dependencies = [
+    "bpy>=4.3.0",
+    "loguru>=0.7.3",
+    "numpy==1.26.*",
+]
+packages = ['convert3d']
+
+[project.scripts]
+convert3d = "convert3d.cli:main"
+
+[project.gui-scripts]
+convert3d-gui = "convert3d.main:App"
