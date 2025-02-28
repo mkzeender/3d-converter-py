@@ -15,3 +15,6 @@ convert3d = "convert3d.cli:main"
 
 [project.gui-scripts]
 convert3d-gui = "convert3d.main:App"
+
+[tool.uv]
+package=true

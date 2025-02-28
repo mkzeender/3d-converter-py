@@ -1,11 +1,14 @@
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
-import bpy, logging
+import logging
+import bpy.ops  # type: ignore
 
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 
 
-def convert(input_path, input_format, output_path, output_format):
+def convert(input_path: str, input_format: str, output_path: str, output_format: str):
+
     match input_format:
         case "obj":
             bpy.ops.import_scene.obj(
@@ -32,6 +35,9 @@ def convert(input_path, input_format, output_path, output_format):
 
         case "stl":
             bpy.ops.import_mesh.stl(filepath=input_path)
+        case val:
+            raise ValueError(f"Unknown file format: {val}")
+
     logging.info("Successful importing!")
 
     match output_format:
