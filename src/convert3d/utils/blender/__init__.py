@@ -36,8 +36,8 @@ def convert(input_path, input_format, output_path, output_format):
 
     match output_format:
         case "obj":
-            bpy.ops.export_scene.obj(
-                filepath=output_path, axis_forward="-Z", axis_up="Y"
+            bpy.ops.wm.obj_export(  # type: ignore
+                filepath=output_path, forward_axis="NEGATIVE_Z", up_axis="Y"
             )
 
         case "dae":
@@ -60,5 +60,12 @@ def convert(input_path, input_format, output_path, output_format):
             )
 
         case "stl":
-            bpy.ops.export_mesh.stl(filepath=output_path)
+            bpy.ops.wm.stl_export(  # type: ignore
+                filepath=output_path, forward_axis="NEGATIVE_Z", up_axis="Y"
+            )
+
+            # bpy.ops.export_mesh.stl(filepath=output_path)
+
+        case val:
+            raise ValueError(f"Unknown file format: '{val}'")
     logging.info("Successful exporting!")
